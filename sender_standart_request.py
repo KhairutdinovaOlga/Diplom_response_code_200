@@ -12,10 +12,9 @@ response = post_new_order(data.order_body)
 response_json = response.json()
 # Сохранение  в переменную параметра track
 track = response_json["track"]
-# Сохранение в  переменной словаря с параметром track
+# Сохранение в  переменной словаря со значением track
 track_param = {'t':track}
-print(response.status_code)
-print(response.json())
+
 
 # функция показывает заказ по его трек-номеру
 def get_order_by_track():
@@ -23,7 +22,5 @@ def get_order_by_track():
     return requests.get(config.URL_SERVICE + config.GET_ORDER_WITH_TRACK_PATH, params=track_param)
 # Переменной присваивается вызов функции
 response_1 = get_order_by_track()
-print(response_1.status_code)
-print(response_1.json())
 
 
